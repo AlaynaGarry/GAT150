@@ -1,13 +1,13 @@
 #include "Game.h"
 
 int main(int, char**){
+
 	Game game;
 	game.Initialize();
 
 	bool quit = false;
 	SDL_Event event;
 	
-
 	while (!quit && !game.IsQuit()) {
 		SDL_PollEvent(&event);
 		switch (event.type) {

@@ -1,0 +1,41 @@
+{
+   "actors":[
+      {
+         "type":"Actor",
+         "name":"background",
+         "tag":"",
+         "transform":{
+            "position":[ 452, 400 ]
+         },
+         "components":[
+            {
+               "type":"SpriteComponent",
+               "textureName":"background.png"
+            }
+         ]
+      },
+      {
+         "type":"Actor",
+         "name":"Title",
+         "transform":{
+            "position":[
+               432,
+               400
+            ]
+         },
+         "components":[
+            {
+               "type":"TextComponent",
+               "fontName":"Fonts/halfelven/halfelvenbold.ttf",
+               "fontSize":40,
+               "color":[
+                  1,
+                  1,
+                  1
+               ],
+               "text":"The Dungon"
+            }
+         ]
+      }
+   ]
+}

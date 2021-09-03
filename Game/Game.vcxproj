@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameComponent\BulletComponent.h" />
     <ClInclude Include="GameComponent\EnemyComponent.h" />
     <ClInclude Include="GameComponent\PickupComponent.h" />
     <ClInclude Include="GameComponent\PlayerComponent.h" />

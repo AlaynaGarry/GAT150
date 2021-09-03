@@ -13,7 +13,7 @@ namespace nc
             frameTimer = 0;
             frame++;
           
-
+            // horizontal 24x24
             if (frame > endFrame) {
                 frame = startFrame;
             }

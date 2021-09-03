@@ -135,6 +135,9 @@
     <ClCompile Include="Physics\ContactListener.cpp">
       <Filter>Sources\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="Object\Tilemap.cpp">
+      <Filter>Sources\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Math\Color.h">
@@ -257,9 +260,21 @@
     <ClInclude Include="Physics\ContactListener.h">
       <Filter>Sources\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="Object\Tilemap.h">
+      <Filter>Sources\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Build\Resources\scene.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="..\Build\Resources\map.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="..\Build\Resources\title.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="..\Build\Resources\gameover.txt">
       <Filter>Resources</Filter>
     </Text>
   </ItemGroup>

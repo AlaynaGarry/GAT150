@@ -1,12 +1,27 @@
 {
    "actors":[
+    {
+         "type":"Actor",
+         "name":"background",
+         "tag":"",
+         "transform":{
+            "position":[ 452, 400 ]
+         },
+         "components":[
+            {
+               "type":"SpriteComponent",
+               "textureName":"background.png"
+            }
+         ]
+      },
       {
          "type":"Actor",
          "name":"Player",
          "tag":"Player",
+         "prototype":true,
          "transform":{
             "position":[
-               433,
+               432,
                400
             ],
             "rotation":0,
@@ -15,39 +30,35 @@
          "components":[
             {
                "type":"PlayerComponent",
-               "speed":50
-            },
-            {
-	            "type":"AudioComponent",
-	            "soundNames":"Audio/grunt.wav",
-	            "playOnAwake":true
+               "speed":40,
+               "jump": 700
             },
             {
                "type":"SpriteAnimationComponent",
-               "textureName":"characters.png",
+               "textureName":"character.png",
                "fps":10,
-               "numFramesX":18,
-               "numFramesY":11,
-               "startFrame":90,
-               "endFrame":95,
+               "numFramesX":12,
+               "numFramesY":8,
+               "startFrame":24,
+               "endFrame":30,
                "sequences":[
                     {
                         "name":"idle",
                         "sequence.fps":5,
-                        "sequence.startFrame":0,
-                        "sequence.endFrame":1
+                        "sequence.startFrame":24,
+                        "sequence.endFrame":25
                     },
                     {
                         "name":"walk_right",
                         "sequence.fps":10,
-                        "sequence.startFrame":90,
-                        "sequence.endFrame":95
+                        "sequence.startFrame":12,
+                        "sequence.endFrame":24
                     },
                     {
                         "name":"walk_left",
                         "sequence.fps":10,
-                        "sequence.startFrame":162,
-                        "sequence.endFrame":167
+                        "sequence.startFrame":36,
+                        "sequence.endFrame":48
                     }
                ],
                "defaultSequence":"idle"
@@ -60,19 +71,21 @@
                "data.restitution":0.1,
                "data.gravityScale":1,
                "data.size":[
-                  40,
-                  40
+                  24,
+                  48
                ]
             }
          ]
       },
       {
          "type":"Actor",
+         "name":"Bat",
          "tag":"Enemy",
+         "prototype":true,
          "transform":{
             "position":[
-               200,
-               300
+               20,
+               432
             ],
             "rotation":0,
             "scale":[2,2]
@@ -80,7 +93,7 @@
          "components":[
             {
                "type":"EnemyComponent",
-               "speed":20
+               "speed":3
             },
             {
                "type":"SpriteAnimationComponent",
@@ -95,62 +108,58 @@
                "type":"RBPhysicsComponent",
                "data.isDynamic":true,
                "data.isSensor":false,
-               "data.density":2,
+               "data.density": 3,
                "data.lockAngle":true,
                "data.restitution":0.1,
                "data.gravityScale":0,
                "data.size":[
-                  40,
-                  40
+                  32,
+                  32
                ]
             }
          ]
       },
       {
-			"type":"Actor",
-			"name":"Score",
-			"transform":{
-				"position":[
-					433,
-					400
-				]
-			},
-			"components":[
-				{
-					"type":"TextComponent",
-					"fontName":"Fonts/space/spaceage.ttf",
-					"fontSize":16,
-					"color":[
-						1,
-						1,
-						1
-					],
-					"text":"SPACE!"
-				}
-			]
-		},
-      {
          "type":"Actor",
+         "name":"tile01",
          "tag":"ground",
+         "prototype":true,
          "transform":{
-            "position":[
-               433,
-               770
-            ]
+            "scale":[ 2, 2 ]
          },
          "components":[
             {
                "type":"SpriteComponent",
-               "textureName":"ground.png"
+               "textureName":"tileset2.png",
+               "rect":[ 160, 224, 32, 32 ]
             },
             {
                "type":"RBPhysicsComponent",
                "data.isDynamic":false,
                "data.density":1,
-               "data.size":[
-                  700,
-                  10
-               ]
+               "data.size":[64, 64]
+            }
+         ]
+      },
+      {
+         "type":"Actor",
+         "name":"tile02",
+         "tag":"platform",
+         "prototype":true,
+         "transform":{
+            "scale":[ 2, 2 ]
+         },
+         "components":[
+            {
+               "type":"SpriteComponent",
+               "textureName":"tileset2.png",
+               "rect":[ 224, 448, 32, 32 ]
+            },
+            {
+               "type":"RBPhysicsComponent",
+               "data.isDynamic":false,
+               "data.density":1,
+               "data.size":[64, 64]
             }
          ]
       },
@@ -161,8 +170,8 @@
          "tag":"coin",
          "transform":{
             "position":[
-               500,
-               740
+               300,
+               300
             ]
          },
          "components":[
@@ -183,9 +192,55 @@
                "data.density":1,
                "data.gravityScale": 1,
                "data.size":[
-                  40,
-                  40
+                  32,
+                  32
                ]
+            }
+         ]
+      },
+      {
+         "type":"Actor",
+         "name":"Score",
+         "transform":{
+            "position":[
+               100,
+               100
+            ]
+         },
+         "components":[
+            {
+               "type":"TextComponent",
+               "fontName":"Fonts/halfelven/halfelven.ttf",
+               "fontSize":20,
+               "color":[
+                  1,
+                  1,
+                  1
+               ],
+               "text":"0000"
+            }
+         ]
+      },
+      {
+         "type":"Actor",
+         "name":"lives",
+         "transform":{
+            "position":[
+               800,
+               100
+            ]
+         },
+         "components":[
+            {
+               "type":"TextComponent",
+               "fontName":"Fonts/halfelven/halfelven.ttf",
+               "fontSize":20,
+               "color":[
+                  1,
+                  1,
+                  1
+               ],
+               "text":"lives"
             }
          ]
       }

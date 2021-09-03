@@ -47,5 +47,8 @@
     <ClInclude Include="GameComponent\PickupComponent.h">
       <Filter>Sources\GameComponent</Filter>
     </ClInclude>
+    <ClInclude Include="GameComponent\BulletComponent.h">
+      <Filter>Sources\GameComponent</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

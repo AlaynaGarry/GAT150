@@ -18,6 +18,10 @@ public:
 
 public: 
 	float speed = 0;
+	float jump = 0;
+	float health = 5;
+
+	bool isAlive = true;
 	
 private:
 	std::list<nc::Actor*> contacts;

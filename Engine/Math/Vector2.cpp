@@ -6,8 +6,8 @@ namespace nc {
 	const Vector2 Vector2::down{0, 1};
 	const Vector2 Vector2::left{-1, 0};
 	const Vector2 Vector2::right{1, 0};
-	const Vector2 Vector2::one{0, 0};
-	const Vector2 Vector2::zero{1, 1};
+	const Vector2 Vector2::one{1, 1};
+	const Vector2 Vector2::zero{0, 0};
 
 	std::istream& operator >> (std::istream& stream, Vector2& v){
 
@@ -23,6 +23,11 @@ namespace nc {
 			v.y = std::stof(y);
 		}
 
+		return stream;
+	}
+	std::ostream& operator<<(std::ostream& stream, Vector2& v)
+	{
+		stream << v.x << " " << v.y; 
 		return stream;
 	}
 }

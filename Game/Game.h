@@ -3,12 +3,15 @@
 
 class Game {
 public: 
-	enum class eState{
-		Title,
-		StartGame,
-		StartLevel,
-		Game,
-		GameOver,
+	enum class eState {
+		Reset,
+		Title, 
+		StartGame, 
+		StartLevel, 
+		Level, 
+		PlayerDead, 
+		GameOver
+
 	};
 
 public:
@@ -19,12 +22,18 @@ public:
 	void Draw();
 
 	bool IsQuit() { return quit; }
+	bool IsPlayerAlive();
 
 private:
-		void UpdateTitle(float dt);
-		void UpdateStartLevel(float dt);
-		void OnAddPoints(const nc::Event& event);
-		void OnPlayerDead(const nc::Event& event);
+	void Reset();
+	void Title();
+	void StartGame();
+	void StartLevel();
+	void Level();
+	void PlayerDead();
+	void GameOver();
+	void OnAddScore(const nc::Event& event);
+	void OnTakeLives(const nc::Event& event);
 
 public: 
 	std::unique_ptr<nc::Engine> engine;
@@ -33,18 +42,11 @@ public:
 private:
 	bool quit = false;
 
-	eState state = eState::Title;
-	float stateTimer = 0.0f;
-	float gameOverTimer = 2.0f;
-
-	size_t score = 0;
-	size_t lives = 0;
-
-	size_t highscore = 0;
-
-	nc::AudioChannel musicChannel;
-	std::shared_ptr<nc::Texture> particleTexture;
-	std::shared_ptr<nc::Texture> textTexture;
-	std::shared_ptr<nc::Texture> playerTexture;
-	std::shared_ptr<nc::Texture> backgroudTexture;
+	eState state = eState::Reset;
+	int score = 0;
+	int lives = 3;
+	float stateTimer = 0;
+	float spawnTimer = 0;
+	float enemySpawnTimer = 0;
+	
 	};

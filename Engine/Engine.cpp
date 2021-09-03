@@ -8,8 +8,22 @@ namespace nc {
 		systems.push_back(std::make_unique<ResourceSystem>());
 		systems.push_back(std::make_unique<InputSystem>());
 		systems.push_back(std::make_unique<ParticleSystem>());
+		systems.push_back(std::make_unique<PhysicsSystem>());
 	
 		std::for_each(systems.begin(), systems.end(), [](auto& system) {system->Startup(); });
+
+		REGISTER_CLASS(Actor)
+		REGISTER_CLASS(SpriteComponent)
+		REGISTER_CLASS(SpriteAnimationComponent)
+		REGISTER_CLASS(PhysicsComponent)
+		REGISTER_CLASS(RBPhysicsComponent)
+		REGISTER_CLASS(AudioComponent)
+		REGISTER_CLASS(TextComponent)
+
+		//ObjectFactory::Instance().Register<nc::SpriteComponent>("SpriteComponent");
+		//ObjectFactory::Instance().Register<nc::SpriteAnimationComponent>("SpriteAnimationComponent");
+		//ObjectFactory::Instance().Register<nc::PhysicsComponent>("PhysicsComponent");
+
 	}
 	void Engine::Shutdown() {
 		std::for_each(systems.begin(), systems.end(), [](auto& system) {system->Shutdown(); });

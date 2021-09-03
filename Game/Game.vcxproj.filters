@@ -13,8 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Sources\Actors">
-      <UniqueIdentifier>{c529521f-e6d2-4100-abf7-cd8f4a3c117c}</UniqueIdentifier>
+    <Filter Include="Sources\GameComponent">
+      <UniqueIdentifier>{53fda861-e94c-4a4a-b415-6bd9baae1876}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -24,40 +24,31 @@
     <ClCompile Include="Game.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Actors\Player.cpp">
-      <Filter>Sources\Actors</Filter>
+    <ClCompile Include="GameComponent\PlayerComponent.cpp">
+      <Filter>Sources\GameComponent</Filter>
     </ClCompile>
-    <ClCompile Include="Actors\Asteroid.cpp">
-      <Filter>Sources\Actors</Filter>
+    <ClCompile Include="GameComponent\EnemyComponent.cpp">
+      <Filter>Sources\GameComponent</Filter>
     </ClCompile>
-    <ClCompile Include="Actors\Enemy.cpp">
-      <Filter>Sources\Actors</Filter>
-    </ClCompile>
-    <ClCompile Include="Actors\Projectile.cpp">
-      <Filter>Sources\Actors</Filter>
-    </ClCompile>
-    <ClCompile Include="Actors\ShooterEnemy.cpp">
-      <Filter>Sources\Actors</Filter>
+    <ClCompile Include="GameComponent\PickupComponent.cpp">
+      <Filter>Sources\GameComponent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
       <Filter>Sources</Filter>
     </ClInclude>
-    <ClInclude Include="Actors\Player.h">
-      <Filter>Sources\Actors</Filter>
+    <ClInclude Include="GameComponent\PlayerComponent.h">
+      <Filter>Sources\GameComponent</Filter>
     </ClInclude>
-    <ClInclude Include="Actors\Asteroid.h">
-      <Filter>Sources\Actors</Filter>
+    <ClInclude Include="GameComponent\EnemyComponent.h">
+      <Filter>Sources\GameComponent</Filter>
     </ClInclude>
-    <ClInclude Include="Actors\Enemy.h">
-      <Filter>Sources\Actors</Filter>
+    <ClInclude Include="GameComponent\PickupComponent.h">
+      <Filter>Sources\GameComponent</Filter>
     </ClInclude>
-    <ClInclude Include="Actors\Projectile.h">
-      <Filter>Sources\Actors</Filter>
-    </ClInclude>
-    <ClInclude Include="Actors\ShooterEnemy.h">
-      <Filter>Sources\Actors</Filter>
+    <ClInclude Include="GameComponent\BulletComponent.h">
+      <Filter>Sources\GameComponent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

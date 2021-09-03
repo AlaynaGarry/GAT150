@@ -1,7 +1,7 @@
 #pragma once
+#include "box2d/box2d.h"
 #include <cmath>
 #include <iostream>
-
 
 namespace nc {
 	struct Vector2 {
@@ -12,6 +12,8 @@ namespace nc {
 		Vector2(float x, float y) : x{ x }, y{ y } {}
 		Vector2(int x, int y) : x{ static_cast<float>(x) }, y{ static_cast<float>(y) } {}
 
+		Vector2(const b2Vec2& v2) : x{v2.x}, y{v2.y}{}
+
 		float operator [] (size_t index) const { return (&x)[index]; }
 		float& operator [] (size_t index) { return (&x)[index]; }
 
@@ -20,7 +22,7 @@ namespace nc {
 		Vector2 operator + (const Vector2& v) const { return Vector2{ x + v.x, y + v.y }; }
 		Vector2 operator - (const Vector2& v) const { return Vector2{ x - v.x, y - v.y }; }
 		Vector2 operator * (const Vector2& v) const { return Vector2{ x * v.x, y * v.y }; }
-		Vector2 operator / (const Vector2& v) const { return Vector2{ x - v.x, y - v.y }; }
+		Vector2 operator / (const Vector2& v) const { return Vector2{ x / v.x, y / v.y }; }
 
 		Vector2 operator + (float s) const { return Vector2{ x + s, y + s }; }
 		Vector2 operator - (float s) const { return Vector2{ x - s, y - s }; }
@@ -42,6 +44,8 @@ namespace nc {
 		bool operator == (const Vector2& v) const { return x == v.x && y == v.y; }
 		bool operator != (const Vector2& v) const { return x != v.x || y != v.y; }
 
+		operator b2Vec2() const { return b2Vec2{x, y}; }
+
 		float Length() const;
 		float LengthSqr() const;
 
@@ -58,6 +62,7 @@ namespace nc {
 		static float Dot(const Vector2& v1, const Vector2& v2);
 
 		friend std::istream& operator >> (std::istream& stream, Vector2& v);
+		friend std::ostream& operator << (std::ostream& stream, Vector2& v);
 
 		static const Vector2 up;
 		static const Vector2 down;
